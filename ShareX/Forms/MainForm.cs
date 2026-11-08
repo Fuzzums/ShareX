@@ -104,7 +104,7 @@ internal sealed class MainForm
             EndSessionReasons reason = (EndSessionReasons)m.LParam.ToInt64();
             if (reason.HasFlag(EndSessionReasons.ENDSESSION_CLOSEAPP))
             {
-                NativeMethods.RegisterApplicationRestart("-silent", 0);
+                NativeMethods.RegisterApplicationRestart(ApplicationLifecycle.GetRestartArguments("-silent"), 0);
             }
 
             m.Result = new IntPtr(1);

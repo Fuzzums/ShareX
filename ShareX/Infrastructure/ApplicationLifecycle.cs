@@ -31,6 +31,7 @@ using ShareX.AvaloniaUI.Integration;
 using ShareX.HelpersLib;
 using ShareX.Localization;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
@@ -112,16 +113,29 @@ internal static class ApplicationLifecycle
         ProcessStartInfo startInfo = new()
         {
             FileName = executablePath,
+            Arguments = GetRestartArguments(),
             UseShellExecute = true
         };
 
         if (_restartAsAdmin)
         {
-            startInfo.Arguments = "-silent";
+            startInfo.Arguments = GetRestartArguments("-silent");
             startInfo.Verb = "runas";
         }
 
         Process.Start(startInfo);
+    }
+
+    // Keeps the startup options given on the command line, otherwise a ShareX started with -portable or -sandbox
+    // would restart with the installed settings, and changes such as the language would seem to be lost.
+    internal static string GetRestartArguments(params string[] arguments)
+    {
+        List<string> restartArguments = [.. arguments];
+        if (StartupOptions.Portable) restartArguments.Add("-portable");
+        if (StartupOptions.Sandbox) restartArguments.Add("-sandbox");
+        if (StartupOptions.MultiInstance) restartArguments.Add("-multi");
+        if (StartupOptions.IgnoreHotkeyWarning) restartArguments.Add("-NoHotkeys");
+        return string.Join(" ", restartArguments);
     }
 
     internal static void Exit()

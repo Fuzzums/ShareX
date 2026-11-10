@@ -424,7 +424,7 @@ public partial class RegionCaptureWindow : Window
 
         _magnifierView.IsVisible = IsMagnifierShown;
         ApplyMagnifierShape();
-        _pointerInfoPanel.IsVisible = _request.RegionCaptureOptions.ShowInfo;
+        _pointerInfoPanel.IsVisible = IsPointerInfoShown;
         _magnifierPanel.IsVisible = _magnifierView.IsVisible || _pointerInfoPanel.IsVisible;
         _regionToolButton.Classes.Set("active", true);
         _viewModel.SetHostToolbarToolsActive(false);
@@ -697,7 +697,7 @@ public partial class RegionCaptureWindow : Window
         _editorWorkspace.CancelActiveInteractionOrSelection();
         _regionInputSurface.Cursor = CursorAssetLoader.GetCrosshairCursor(_cursorScaling);
         bool showMagnifier = IsMagnifierShown;
-        bool showInfo = _request?.RegionCaptureOptions.ShowInfo == true;
+        bool showInfo = IsPointerInfoShown;
         _magnifierView.IsVisible = showMagnifier;
         _pointerInfoPanel.IsVisible = showInfo;
         _magnifierPanel.IsVisible = showMagnifier || showInfo;
@@ -1037,8 +1037,14 @@ public partial class RegionCaptureWindow : Window
     }
 
     // The region tool and the drawing tools each have their own magnifier setting.
-    private bool IsMagnifierShown => _request != null && !_magnifierHiddenByWheel &&
+    private bool IsMagnifierEnabledForActiveTool => _request != null &&
         (_regionToolActive ? _request.RegionCaptureOptions.ShowMagnifier : _request.RegionCaptureOptions.ShowMagnifierWithDrawingTools);
+
+    private bool IsMagnifierShown => IsMagnifierEnabledForActiveTool && !_magnifierHiddenByWheel;
+
+    // The X/Y label near the cursor is turned off together with the active tool's magnifier setting.
+    // Scrolling the magnifier away keeps the label.
+    private bool IsPointerInfoShown => IsMagnifierEnabledForActiveTool && _request?.RegionCaptureOptions.ShowInfo == true;
 
     private void OnRegionPointerWheelChanged(object? sender, PointerWheelEventArgs e)
     {
@@ -1811,7 +1817,7 @@ public partial class RegionCaptureWindow : Window
         UpdateCursorScaling(imagePoint);
 
         bool showMagnifier = IsMagnifierShown;
-        bool showInfo = _request.RegionCaptureOptions.ShowInfo;
+        bool showInfo = IsPointerInfoShown;
 
         if (showMagnifier || showInfo)
         {

@@ -3065,6 +3065,9 @@ Voulez-vous annuler l'enregistrement d'écran en cours ?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Afficher la loupe près du curseur</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Afficher la loupe lors de l'utilisation des outils de dessin</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Afficher les notifications</value>
   </data>

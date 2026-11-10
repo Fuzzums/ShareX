@@ -510,15 +510,26 @@ internal sealed class TaskSettingsPageBuilder
             value => options.CustomInfoText = value.Replace("\r\n", "$n").Replace("\n", "$n")));
         BindEnabled(customInfoText, customInfo);
 
-        BoundValue<bool> magnifier = new(options.ShowMagnifier, value => options.ShowMagnifier = value);
+        // The magnifier shape and size settings are used by both magnifier toggles.
+        BoundValue<bool> anyMagnifier = new(options.ShowMagnifier || options.ShowMagnifierWithDrawingTools, _ => { });
+        BoundValue<bool> magnifier = new(options.ShowMagnifier, value =>
+        {
+            options.ShowMagnifier = value;
+            anyMagnifier.Value = options.ShowMagnifier || options.ShowMagnifierWithDrawingTools;
+        });
+        BoundValue<bool> drawingToolsMagnifier = new(options.ShowMagnifierWithDrawingTools, value =>
+        {
+            options.ShowMagnifierWithDrawingTools = value;
+            anyMagnifier.Value = options.ShowMagnifier || options.ShowMagnifierWithDrawingTools;
+        });
         CheckBox squareMagnifier = Check(Strings.TaskSettingsWindow_UseSquareMagnifier, () => options.UseSquareMagnifier, value => options.UseSquareMagnifier = value);
         NumericUpDown magnifierSize = Number(() => options.MagnifierSize, value => options.MagnifierSize = (int)value,
             RegionCaptureOptions.MagnifierSizeMinimum, RegionCaptureOptions.MagnifierSizeMaximum);
         NumericUpDown pixelCount = Number(() => options.MagnifierPixelCount, value => options.MagnifierPixelCount = (int)value,
             RegionCaptureOptions.MagnifierPixelCountMinimum, RegionCaptureOptions.MagnifierPixelCountMaximum);
-        BindEnabled(squareMagnifier, magnifier);
-        BindEnabled(magnifierSize, magnifier);
-        BindEnabled(pixelCount, magnifier);
+        BindEnabled(squareMagnifier, anyMagnifier);
+        BindEnabled(magnifierSize, anyMagnifier);
+        BindEnabled(pixelCount, anyMagnifier);
 
         BoundValue<bool> customToolbarButtonSize = new(options.UseCustomToolbarButtonSize, value => options.UseCustomToolbarButtonSize = value);
         NumericUpDown toolbarButtonSize = Number(() => options.ToolbarButtonSize, value => options.ToolbarButtonSize = (int)value,
@@ -547,7 +558,9 @@ internal sealed class TaskSettingsPageBuilder
             EnabledCard(_captureOverride, Strings.TaskSettingsWindow_InformationAndMagnifier,
                 Check(Strings.TaskSettingsWindow_ShowPositionAndSizeInfo, () => options.ShowInfo, value => options.ShowInfo = value),
                 Check(Strings.TaskSettingsWindow_UseCustomInfoText, customInfo), customInfoText,
-                Check(Strings.TaskSettingsWindow_ShowMagnifierNearCursor, magnifier), squareMagnifier,
+                Check(Strings.TaskSettingsWindow_ShowMagnifierNearCursor, magnifier),
+                Check(Strings.TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools, drawingToolsMagnifier),
+                squareMagnifier,
                 Row(Strings.TaskSettingsWindow_MagnifierSize, magnifierSize),
                 Row(Strings.TaskSettingsWindow_MagnifierPixelCount, pixelCount),
                 Check(Strings.TaskSettingsWindow_ShowCenterCrosshair, () => options.ShowCenterCrosshair, value => options.ShowCenterCrosshair = value),

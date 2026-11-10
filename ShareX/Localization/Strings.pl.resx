@@ -3065,6 +3065,9 @@ Czy chcesz przerwać aktywne nagrywanie ekranu?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Pokaż lupę obok kursora</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Pokaż lupę podczas używania narzędzi rysowania</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Pokaż powiadomienia</value>
   </data>

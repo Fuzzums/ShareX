@@ -3065,6 +3065,9 @@
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>在游標附近顯示放大鏡</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>使用繪圖工具時顯示放大鏡</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>顯示通知</value>
   </data>

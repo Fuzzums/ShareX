@@ -3065,6 +3065,9 @@ Möchten Sie die aktive Bildschirmaufzeichnung abbrechen?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Lupe in Cursornähe anzeigen</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Lupe bei Verwendung von Zeichenwerkzeugen anzeigen</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Benachrichtigungen anzeigen</value>
   </data>

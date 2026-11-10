@@ -3065,6 +3065,9 @@
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>הצגת זכוכית מגדלת ליד הסמן</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>הצגת זכוכית מגדלת בעת שימוש בכלי ציור</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>הצג התראות</value>
   </data>

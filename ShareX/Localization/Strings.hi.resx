@@ -3065,6 +3065,9 @@
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>कर्सर के पास आवर्धक दिखाएँ</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>आरेखण टूल का उपयोग करते समय आवर्धक दिखाएँ</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>सूचनाएँ दिखाएँ</value>
   </data>

@@ -3065,6 +3065,9 @@
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Показывать лупу рядом с курсором</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Показывать лупу при использовании инструментов рисования</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Показывать уведомления</value>
   </data>

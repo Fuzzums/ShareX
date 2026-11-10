@@ -67,6 +67,8 @@ namespace ShareX.ScreenCaptureLib
         public bool UseCustomInfoText = false;
         public string CustomInfoText = "X: $x, Y: $y$nR: $r, G: $g, B: $b$nHex: $hex"; // Formats: $x, $y, $r, $g, $b, $hex, $HEX, $n
         public bool ShowMagnifier = true;
+        // Magnifier while a drawing tool is active, in region capture and the image editor. ShowMagnifier is for the region tool.
+        public bool ShowMagnifierWithDrawingTools = true;
         public bool UseSquareMagnifier = false;
         public int MagnifierSize = 150;
         public int MagnifierPixelCount = 15; // Must be odd number like 11, 13, 15 etc.

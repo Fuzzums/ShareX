@@ -3065,6 +3065,9 @@ Do you want to abort the active grabación de pantalla?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Mostrar la lupa cerca del cursor</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Mostrar la lupa al usar herramientas de dibujo</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Mostrar notificaciones</value>
   </data>

@@ -3065,6 +3065,9 @@ Do you want to abort the active scherm opname?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Vergrootglas bij cursor tonen</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Vergrootglas tonen bij gebruik van tekengereedschappen</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Meldingen tonen</value>
   </data>

@@ -1036,7 +1036,9 @@ public partial class RegionCaptureWindow : Window
         return true;
     }
 
-    private bool IsMagnifierShown => _request?.RegionCaptureOptions.ShowMagnifier == true && !_magnifierHiddenByWheel;
+    // The region tool and the drawing tools each have their own magnifier setting.
+    private bool IsMagnifierShown => _request != null && !_magnifierHiddenByWheel &&
+        (_regionToolActive ? _request.RegionCaptureOptions.ShowMagnifier : _request.RegionCaptureOptions.ShowMagnifierWithDrawingTools);
 
     private void OnRegionPointerWheelChanged(object? sender, PointerWheelEventArgs e)
     {

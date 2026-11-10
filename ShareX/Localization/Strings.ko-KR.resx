@@ -3065,6 +3065,9 @@ Do you want to abort the active 화면 녹화?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>커서 근처에 돋보기 표시</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>그리기 도구 사용 시 돋보기 표시</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>알림 표시</value>
   </data>

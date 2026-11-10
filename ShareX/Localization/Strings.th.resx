@@ -3065,6 +3065,9 @@
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>แสดงแว่นขยายใกล้เคอร์เซอร์</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>แสดงแว่นขยายเมื่อใช้เครื่องมือวาด</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>แสดง การแจ้งเตือน</value>
   </data>

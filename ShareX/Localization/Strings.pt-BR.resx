@@ -3065,6 +3065,9 @@ Deseja interromper a gravação de tela ativa?</value>
   <data name="TaskSettingsWindow_ShowMagnifierNearCursor" xml:space="preserve">
     <value>Mostrar lupa perto do cursor</value>
   </data>
+  <data name="TaskSettingsWindow_ShowMagnifierWhenUsingDrawingTools" xml:space="preserve">
+    <value>Mostrar lupa ao usar ferramentas de desenho</value>
+  </data>
   <data name="TaskSettingsWindow_ShowNotifications" xml:space="preserve">
     <value>Mostrar notificações</value>
   </data>
